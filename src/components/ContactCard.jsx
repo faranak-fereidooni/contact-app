@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import user from "../img/user.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { faEdit } from "@fortawesome/free-solid-svg-icons";
 
 const ContactCard = (props) => {
   const { id, name, email } = props.contact;
@@ -40,6 +41,20 @@ const ContactCard = (props) => {
         }}
         onClick={() => props.deleteContactHandler(id)}
       />
+
+      <Link to={`/edit/${id}`} state={{ contact: props.contact }}>
+        <FontAwesomeIcon
+          icon={faEdit}
+          style={{
+            fontSize: "20px",
+            float: "right",
+            color: "blue",
+            marginTop: "-2rem",
+            marginRight: "2rem",
+            cursor: "pointer",
+          }}
+        />
+      </Link>
     </div>
   );
 };

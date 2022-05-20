@@ -1,0 +1,24 @@
+{
+  "contacts": [
+    {
+      "name": "faranak",
+      "email": "faranak.fereidooni@gmail.com",
+      "id": "39558a55-03f7-4825-b48c-9e4067a68430"
+    },
+    {
+      "id": "16311768-9ca5-4f33-9bd5-e24128a3d243",
+      "name": "behnam",
+      "email": "b.khoshsafar@gmail.com"
+    },
+    {
+      "id": "b368e18c-90b2-433f-9d36-aff6c1bcef8f",
+      "name": "sam",
+      "email": "sam@gmail.com"
+    },
+    {
+      "id": "c71c41ad-2277-471e-8858-c08a7651be22",
+      "name": "elina",
+      "email": "elina@gmail.com"
+    }
+  ]
+}

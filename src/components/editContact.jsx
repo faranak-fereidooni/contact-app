@@ -1,26 +1,34 @@
-import { faWindowRestore } from "@fortawesome/free-solid-svg-icons";
 import React, { Component } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
-class AddContact extends Component {
-  state = { name: "", email: "" };
+class EditContact extends Component {
+  constructor(props) {
+    super(props);
+    const { id, name, email } = props.location.state.contact;
+    this.state = {
+      id,
+      name,
+      email,
+    };
+  }
 
-  AddContact = (e) => {
-    console.log(e);
+  UpdateContact = (e) => {
     e.preventDefault();
     if (this.state.name === "" || this.state.email === "") {
       alert("all the feilds are mendatory");
       return;
     } else {
-      this.props.addContactHandler(this.state);
+      this.props.updateContactHandler(this.state);
       this.setState({ name: "", email: "" });
-      window.location = "/";
+      // window.location = "/";
+      this.props.Navigate("/");
     }
   };
   render() {
     return (
       <div className="container">
-        <h2 style={{ fontWeight: "600", marginTop: "2rem" }}>Add Contact</h2>
-        <form onSubmit={this.AddContact}>
+        <h2 style={{ fontWeight: "600", marginTop: "2rem" }}>Edit Contact</h2>
+        <form onSubmit={this.UpdateContact}>
           <div className="mt-2">
             <label htmlFor="name">Name</label>
             <input
@@ -45,7 +53,7 @@ class AddContact extends Component {
             />
           </div>
           <button className="btn btn-primary" style={{ marginTop: "1rem" }}>
-            Add
+            Update
           </button>
         </form>
       </div>
@@ -53,4 +61,6 @@ class AddContact extends Component {
   }
 }
 
-export default AddContact;
+export default (props) => (
+  <EditContact {...props} location={useLocation()} Navigate={useNavigate()} />
+);
