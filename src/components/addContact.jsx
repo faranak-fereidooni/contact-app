@@ -1,5 +1,6 @@
 import { faWindowRestore } from "@fortawesome/free-solid-svg-icons";
 import React, { Component } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 class AddContact extends Component {
   state = { name: "", email: "" };
@@ -13,7 +14,7 @@ class AddContact extends Component {
     } else {
       this.props.addContactHandler(this.state);
       this.setState({ name: "", email: "" });
-      window.location = "/";
+      this.props.Navigate("/");
     }
   };
   render() {
@@ -53,4 +54,6 @@ class AddContact extends Component {
   }
 }
 
-export default AddContact;
+export default (props) => (
+  <AddContact {...props} location={useLocation()} Navigate={useNavigate()} />
+);
